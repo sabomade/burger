@@ -28,18 +28,9 @@ table{
     margin: auto;
     width: 100%;
 }
-.info{
-    display: flex;
-    align-self: flex-start;
-    margin-top: auto;
-    text-align: center;
-    width: auto;
-}
+
 
 .list-group-item {
     background-color: transparent;
     border: none;
-}
-.fixed-bottom {
-    position: relative;
 }
