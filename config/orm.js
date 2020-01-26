@@ -42,7 +42,7 @@ function printQuestionMarks(num) {
 // Object for all our SQL statement functions.
 var orm = {
   selectAll: function(tableInput, cb) {
-    var queryString = "SELECT * FROM " + tableInput + ";";
+    var queryString = "SELECT * FROM " + tableInput;
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
@@ -59,8 +59,6 @@ var orm = {
     queryString += "VALUES (";
     queryString += printQuestionMarks(vals.length);
     queryString += ") ";
-
-    console.log(queryString);
 
     connection.query(queryString, vals, function(err, result) {
       if (err) {
@@ -79,7 +77,6 @@ var orm = {
     queryString += " WHERE ";
     queryString += condition;
 
-    console.log(queryString);
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
@@ -103,13 +100,10 @@ var orm = {
   },
   truncate: function(table, cb){
     var queryString = "DELETE FROM " + table;
-    console.log(queryString);
     connection.query(queryString, function(err, result){
       if (err){
-        console.log('we got an error');
         throw err;
       }
-      console.log('no error', result);
       cb(result);
     })
   }
